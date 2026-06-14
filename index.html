@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Putra Lenaldo — Planning · HR · Data</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --cream: #F2EEE7;
+  --cream-dark: #EAE4DB;
+  --dark: #1A1A18;
+  --dark-mid: #2A2A26;
+  --copper: #B87048;
+  --copper-light: #C9895E;
+  --text: #2C2B27;
+  --text-muted: #7A7670;
+  --border: #D8D2C8;
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--text); font-size: 14px; line-height: 1.6; overflow-x: hidden; }
+
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(242,238,231,0.95); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border); height: 56px;
+}
+.nav-inner {
+  max-width: 1080px; margin: 0 auto; padding: 0 40px; height: 100%;
+  display: flex; align-items: center; justify-content: space-between; gap: 20px;
+}
+.nav-brand { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+.nav-name { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 500; letter-spacing: 0.02em; color: var(--text); text-decoration: none; }
+.nav-divider { width: 1px; height: 16px; background: var(--border); flex-shrink: 0; }
+.nav-tagline { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); font-weight: 400; white-space: nowrap; }
+.nav-links { display: flex; align-items: center; gap: 18px; list-style: none; }
+.nav-links a { font-size: 10.5px; letter-spacing: 0.07em; text-transform: uppercase; color: var(--text-muted); text-decoration: none; font-weight: 500; transition: color 0.2s; white-space: nowrap; }
+.nav-links a:hover { color: var(--text); }
+.nav-links .num { color: var(--copper); margin-right: 3px; font-size: 9.5px; }
+.btn-primary { background: var(--text); color: var(--cream); padding: 8px 16px; font-size: 10.5px; letter-spacing: 0.09em; text-transform: uppercase; font-weight: 500; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; cursor: pointer; border: none; transition: background 0.2s; white-space: nowrap; flex-shrink: 0; }
+.btn-primary:hover { background: var(--dark-mid); }
+.btn-secondary { border: 1.5px solid var(--text); color: var(--text); padding: 8px 16px; font-size: 10.5px; letter-spacing: 0.09em; text-transform: uppercase; font-weight: 500; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: background 0.2s, color 0.2s; }
+.btn-secondary:hover { background: var(--text); color: var(--cream); }
+
+.nav-hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 36px; height: 36px; cursor: pointer; background: none; border: none; padding: 4px; flex-shrink: 0; }
+.nav-hamburger span { display: block; height: 1.5px; background: var(--text); border-radius: 2px; transition: transform 0.3s, opacity 0.3s; }
+
+.nav-mobile-menu { display: none; position: fixed; top: 56px; left: 0; right: 0; background: rgba(242,238,231,0.98); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); padding: 12px 0 16px; z-index: 99; flex-direction: column; }
+.nav-mobile-menu.open { display: flex; }
+.nav-mobile-menu a { padding: 11px 20px; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); text-decoration: none; font-weight: 500; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid var(--border); }
+.nav-mobile-menu a:last-child { border-bottom: none; }
+.nav-mobile-menu a .num { color: var(--copper); font-size: 10px; }
+.nav-mobile-menu .mob-cv { margin: 12px 20px 0; background: var(--text); color: var(--cream); justify-content: center; letter-spacing: 0.1em; }
+
+.wrap { max-width: 1080px; margin: 0 auto; width: 100%; padding: 0 40px; }
+section { padding: 56px 0; }
+.section-eyebrow { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--copper); font-weight: 500; margin-bottom: 10px; }
+.section-heading { font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 4vw, 52px); font-weight: 300; line-height: 1.1; color: var(--text); }
+.section-heading em { font-style: italic; color: var(--copper); font-weight: 300; }
+
+#hero { padding: 0; }
+.hero-inner {
+  max-width: 1080px; margin: 0 auto; padding: 80px 40px 48px;
+  display: grid; grid-template-columns: 1fr 260px; gap: 40px; align-items: center;
+}
+.hero-eyebrow { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+.hero-eyebrow-line { width: 32px; height: 1px; background: var(--copper); }
+.hero-eyebrow span { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--copper); font-weight: 500; }
+.hero-name { font-family: 'Cormorant Garamond', serif; font-size: clamp(48px, 5.5vw, 78px); font-weight: 300; line-height: 0.95; color: var(--text); }
+.hero-name .last { display: block; font-style: italic; color: var(--copper); }
+.hero-tagline { margin-top: 14px; font-size: 13.5px; color: var(--text-muted); max-width: 380px; line-height: 1.75; font-weight: 300; }
+.hero-cta { margin-top: 20px; display: flex; gap: 12px; flex-wrap: wrap; }
+
+.hero-image-wrap { position: relative; }
+.hero-image-wrap img { width: 100%; height: 310px; object-fit: cover; object-position: top; display: block; }
+.hero-badge { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(26,26,24,0.72); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); padding: 11px 16px; display: flex; align-items: center; gap: 11px; }
+.hero-badge .badge-icon { width: 28px; height: 28px; border-radius: 50%; background: rgba(184,112,72,0.25); border: 1px solid rgba(184,112,72,0.5); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.hero-badge .badge-icon svg { color: var(--copper-light); }
+.hero-badge .label { font-size: 9px; letter-spacing: 0.13em; text-transform: uppercase; color: var(--copper-light); font-weight: 500; display: block; margin-bottom: 1px; }
+.hero-badge .value { font-size: 12.5px; color: #FAFAF8; font-family: 'Cormorant Garamond', serif; font-weight: 400; }
+.hero-badge-mobile { display: none; }
+
+.stats-bar { border-top: 1px solid var(--border); }
+.stats-inner { max-width: 1080px; margin: 0 auto; padding: 0 40px; display: grid; grid-template-columns: repeat(4,1fr); }
+.stat-item { padding: 28px 24px; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-family: 'Cormorant Garamond', serif; font-size: 44px; font-weight: 300; color: var(--text); line-height: 1; margin-bottom: 6px; }
+.stat-label { font-size: 11.5px; color: var(--text-muted); line-height: 1.5; }
+
+#tentang { background: var(--cream-dark); padding: 48px 0; }
+.tentang-inner { max-width: 1080px; margin: 0 auto; padding: 0 40px; display: grid; grid-template-columns: 200px 1fr; gap: 56px; align-items: start; }
+.tentang-left { position: sticky; top: 72px; }
+.tentang-body { font-size: 13.5px; color: var(--text-muted); line-height: 1.8; font-weight: 300; margin-top: 4px; }
+.tentang-body p + p { margin-top: 14px; }
+.tentang-cards { display: flex; gap: 1px; background: var(--border); margin-top: 24px; }
+.tentang-card { background: var(--cream-dark); padding: 16px 18px; flex: 1; }
+.tentang-card .card-label { font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--copper); margin-bottom: 5px; }
+.tentang-card .card-value { font-family: 'Cormorant Garamond', serif; font-size: 17px; font-weight: 400; color: var(--text); line-height: 1.2; }
+
+#pengalaman { background: var(--cream); padding: 56px 0; }
+.pengalaman-header { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-bottom: 52px; }
+.pengalaman-desc { font-size: 13.5px; color: var(--text-muted); line-height: 1.8; margin-top: 10px; }
+.timeline { position: relative; padding-left: 190px; display: flex; flex-direction: column; gap: 48px; }
+.timeline::before { content: ''; position: absolute; left: 172px; top: 8px; bottom: 8px; width: 1px; background: var(--border); }
+.timeline-item { position: relative; }
+.timeline-meta { position: absolute; left: -190px; top: 0; width: 162px; text-align: right; }
+.timeline-period { font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--copper); font-weight: 500; }
+.timeline-location { font-size: 11px; color: var(--text-muted); margin-top: 3px; }
+.timeline-dot { position: absolute; left: -24px; top: 8px; width: 9px; height: 9px; border: 1.5px solid var(--copper); border-radius: 50%; background: var(--cream); }
+.timeline-role { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 400; color: var(--text); line-height: 1.1; margin-bottom: 5px; }
+.timeline-company { font-size: 11.5px; color: var(--copper); letter-spacing: 0.04em; font-weight: 500; margin-bottom: 16px; }
+.timeline-points { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.timeline-points li { display: flex; gap: 10px; font-size: 12.5px; color: var(--text-muted); line-height: 1.6; }
+.timeline-points li::before { content: '—'; color: var(--copper); flex-shrink: 0; margin-top: 1px; }
+
+#portfolio { background: var(--cream-dark); padding: 56px 0; }
+.portfolio-header { display: grid; grid-template-columns: 1fr auto; gap: 48px; margin-bottom: 48px; align-items: end; }
+.portfolio-header-left {}
+.portfolio-desc { font-size: 13.5px; color: var(--text-muted); line-height: 1.8; margin-top: 10px; }
+.portfolio-header-actions { display: flex; align-items: flex-end; padding-bottom: 2px; }
+
+.portfolio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); }
+
+.portfolio-card {
+  background: var(--cream-dark);
+  padding: 36px 32px;
+  display: flex; flex-direction: column; gap: 0;
+  transition: background 0.2s;
+  position: relative;
+}
+.portfolio-card:hover { background: var(--cream); }
+
+.portfolio-card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 20px; }
+
+.portfolio-tag {
+  font-size: 9px; letter-spacing: 0.13em; text-transform: uppercase;
+  color: var(--copper); font-weight: 500;
+  border: 1px solid rgba(184,112,72,0.35);
+  padding: 4px 10px; white-space: nowrap;
+}
+
+.portfolio-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 40px; font-weight: 300; color: var(--border);
+  line-height: 1; flex-shrink: 0;
+}
+
+.portfolio-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px; font-weight: 400; color: var(--text);
+  line-height: 1.15; margin-bottom: 10px;
+}
+
+.portfolio-org {
+  font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--copper); font-weight: 500; margin-bottom: 14px;
+}
+
+.portfolio-desc-text {
+  font-size: 12.5px; color: var(--text-muted); line-height: 1.75;
+  margin-bottom: 20px; flex: 1;
+}
+
+/* ── PORTFOLIO IMAGE GALLERY ── */
+.portfolio-images {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  margin-bottom: 20px;
+}
+.portfolio-images.two-col {
+  grid-template-columns: repeat(2, 1fr);
+}
+.portfolio-thumb {
+  position: relative;
+  aspect-ratio: 16/10;
+  overflow: hidden;
+  cursor: pointer;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+.portfolio-thumb img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+.portfolio-thumb:hover img {
+  transform: scale(1.04);
+}
+.portfolio-thumb::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: rgba(184,112,72,0);
+  transition: background 0.2s;
+}
+.portfolio-thumb:hover::after {
+  background: rgba(184,112,72,0.15);
+}
+.portfolio-thumb-zoom {
+  position: absolute; top: 6px; right: 6px;
+  width: 24px; height: 24px;
+  background: rgba(26,26,24,0.7);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; transition: opacity 0.2s;
+  z-index: 2;
+}
+.portfolio-thumb:hover .portfolio-thumb-zoom { opacity: 1; }
+.portfolio-thumb-zoom svg { color: #fff; }
+
+/* ── LIGHTBOX ── */
+.lightbox-overlay {
+  display: none;
+  position: fixed; inset: 0; z-index: 999;
+  background: rgba(26,26,24,0.92);
+  backdrop-filter: blur(6px);
+  align-items: center; justify-content: center;
+}
+.lightbox-overlay.open { display: flex; }
+.lightbox-inner {
+  position: relative;
+  max-width: 900px; width: 90vw;
+  display: flex; flex-direction: column;
+}
+.lightbox-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 0 12px;
+}
+.lightbox-label {
+  font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--copper-light); font-weight: 500;
+}
+.lightbox-counter {
+  font-size: 10px; letter-spacing: 0.08em; color: rgba(242,238,231,0.4);
+}
+.lightbox-close {
+  width: 36px; height: 36px; background: rgba(255,255,255,0.08);
+  border: none; cursor: pointer; display: flex; align-items: center; justify-content: center;
+  color: var(--cream); transition: background 0.2s;
+}
+.lightbox-close:hover { background: rgba(255,255,255,0.15); }
+.lightbox-img-wrap {
+  position: relative; background: #111; line-height: 0;
+}
+.lightbox-img-wrap img {
+  width: 100%; max-height: 68vh; object-fit: contain; display: block;
+}
+.lightbox-caption {
+  padding: 16px 0 4px;
+  display: flex; align-items: baseline; justify-content: space-between; gap: 16px;
+}
+.lightbox-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px; font-weight: 400; color: var(--cream);
+}
+.lightbox-sub {
+  font-size: 11px; color: rgba(242,238,231,0.4);
+  text-transform: uppercase; letter-spacing: 0.08em; white-space: nowrap;
+}
+.lightbox-nav {
+  display: flex; gap: 8px; margin-top: 16px;
+}
+.lightbox-thumb-lb {
+  width: 56px; height: 36px; overflow: hidden; cursor: pointer;
+  border: 1.5px solid transparent; transition: border-color 0.15s;
+  opacity: 0.5; transition: opacity 0.15s, border-color 0.15s;
+  background: #222;
+}
+.lightbox-thumb-lb.active { border-color: var(--copper); opacity: 1; }
+.lightbox-thumb-lb img { width: 100%; height: 100%; display: block; object-fit: cover; }
+.lightbox-arrows {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 100%; display: flex; justify-content: space-between; pointer-events: none;
+  padding: 0 8px;
+}
+.lightbox-arr {
+  width: 40px; height: 40px; background: rgba(26,26,24,0.7);
+  border: none; cursor: pointer; display: flex; align-items: center; justify-content: center;
+  color: var(--cream); pointer-events: all; transition: background 0.2s;
+}
+.lightbox-arr:hover { background: rgba(184,112,72,0.7); }
+
+.portfolio-impacts {
+  display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px;
+}
+.portfolio-impact {
+  background: rgba(184,112,72,0.08);
+  border: 1px solid rgba(184,112,72,0.2);
+  padding: 5px 12px;
+  font-size: 11px; color: var(--copper); font-weight: 500;
+  white-space: nowrap;
+}
+
+.portfolio-divider { height: 1px; background: var(--border); margin-bottom: 16px; }
+
+.portfolio-tools {
+  display: flex; flex-wrap: wrap; gap: 6px;
+}
+.portfolio-tool {
+  font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--text-muted); background: rgba(0,0,0,0.04);
+  padding: 3px 9px;
+}
+
+.portfolio-card.featured {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+  padding: 40px 36px;
+}
+.portfolio-card.featured .portfolio-left { display: flex; flex-direction: column; }
+.portfolio-card.featured .portfolio-right { display: flex; flex-direction: column; gap: 20px; }
+
+#keahlian { background: var(--cream); padding: 56px 0 0; }
+.skills-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border); margin-top: 44px; }
+.skill-card { background: var(--cream); padding: 32px 28px; }
+.skill-card-header { display: flex; align-items: baseline; gap: 10px; margin-bottom: 20px; }
+.skill-card-num { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-style: italic; color: var(--copper); opacity: 0.6; }
+.skill-card-category { font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); }
+.skill-card-title { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 400; color: var(--text); margin-bottom: 18px; }
+.skill-list { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+.skill-list li { display: flex; align-items: center; gap: 10px; font-size: 12.5px; color: var(--text-muted); }
+.skill-list .skill-num { font-size: 10px; color: var(--copper); opacity: 0.7; min-width: 16px; font-weight: 500; }
+
+.skills-ticker { margin-top: 40px; overflow: hidden; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 12px 0; }
+.ticker-inner { display: flex; animation: ticker 20s linear infinite; white-space: nowrap; }
+.ticker-inner span { font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); padding: 0 18px; }
+.ticker-inner span.dot { color: var(--copper); padding: 0; }
+@keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+#pendidikan-sertifikasi { background: var(--cream-dark); padding: 0; }
+.pendidikan-inner { max-width: 1080px; margin: 0 auto; padding: 56px 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+.edu-entry { margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--border); }
+.edu-degree { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 400; color: var(--text); margin-bottom: 3px; }
+.edu-school { font-size: 12.5px; color: var(--text-muted); margin-bottom: 5px; }
+.edu-period { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--copper); font-weight: 500; margin-bottom: 8px; }
+.edu-gpa { font-size: 12.5px; color: var(--copper); font-weight: 500; margin-bottom: 8px; }
+.edu-desc { font-size: 12.5px; color: var(--text-muted); line-height: 1.7; }
+.cert-entry { margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--border); }
+.cert-name { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 400; color: var(--text); margin-bottom: 6px; line-height: 1.3; }
+.cert-basis { font-size: 11.5px; color: var(--copper); font-weight: 500; margin-bottom: 6px; }
+.cert-issuer { display: flex; justify-content: space-between; align-items: baseline; }
+.cert-issuer-name, .cert-date { font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); }
+.cert-quote { margin-top: 28px; background: var(--cream); padding: 24px; border-left: 2px solid var(--copper); }
+.cert-quote blockquote { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-style: italic; color: var(--text); line-height: 1.5; margin-bottom: 12px; }
+.cert-quote cite { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--copper); font-style: normal; font-weight: 500; }
+
+#kontak { background: var(--dark); color: var(--cream); padding: 56px 0; }
+.kontak-heading { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 5.5vw, 64px); font-weight: 300; line-height: 1.1; color: var(--cream); margin-bottom: 52px; }
+.kontak-heading em { font-style: italic; color: var(--copper-light); }
+.kontak-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; }
+.kontak-block { margin-bottom: 24px; }
+.kontak-label { font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--copper-light); font-weight: 500; margin-bottom: 7px; }
+.kontak-value { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 300; color: var(--cream); text-decoration: none; display: flex; align-items: center; gap: 8px; transition: color 0.2s; }
+.kontak-value:hover { color: var(--copper-light); }
+.kontak-hint { font-size: 10.5px; color: rgba(242,238,231,0.35); margin-top: 3px; }
+.kontak-links { display: flex; flex-direction: column; }
+.kontak-link { display: flex; align-items: center; justify-content: space-between; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.08); text-decoration: none; color: var(--cream); font-size: 15px; transition: color 0.2s; }
+.kontak-link:hover { color: var(--copper-light); }
+.kontak-link span { display: flex; align-items: center; gap: 11px; }
+.kontak-cv-btn { display: flex; align-items: center; justify-content: space-between; margin-top: 16px; padding: 20px 22px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); text-decoration: none; color: var(--cream); font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; transition: background 0.2s; }
+.kontak-cv-btn:hover { background: rgba(255,255,255,0.1); }
+
+footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.06); }
+.footer-inner { max-width: 1080px; margin: 0 auto; padding: 18px 40px; display: flex; justify-content: space-between; align-items: center; }
+footer p { font-size: 10.5px; letter-spacing: 0.06em; color: rgba(242,238,231,0.3); text-transform: uppercase; }
+
+.acc-trigger { display: flex; align-items: center; justify-content: space-between; cursor: pointer; user-select: none; gap: 12px; }
+.acc-trigger:hover .timeline-role { color: var(--copper); }
+.acc-icon { flex-shrink: 0; transition: transform 0.35s; }
+.acc-body { overflow: hidden; max-height: 0; opacity: 0; transition: max-height 0.45s ease, opacity 0.3s ease; }
+
+.reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 860px) {
+  .nav-inner { padding: 0 16px; }
+  .nav-links { display: none; }
+  .nav-tagline { display: none; }
+  .nav-divider { display: none; }
+  .nav-hamburger { display: flex; }
+  .btn-primary.nav-cv-btn { display: none; }
+
+  .wrap { padding: 0 16px !important; }
+  .footer-inner { padding: 16px; }
+
+  .hero-inner {
+    padding: 72px 16px 36px !important;
+    grid-template-columns: 120px 1fr !important;
+    gap: 16px !important;
+    align-items: start;
+  }
+  .hero-left { order: 2; }
+  .hero-image-wrap { order: 1; }
+  .hero-image-wrap img { height: 160px; width: 120px; object-fit: cover; object-position: top center; }
+  .hero-badge { display: none; }
+  .hero-badge-mobile {
+    display: flex; align-items: center; gap: 7px;
+    margin-top: 8px; padding: 8px 10px;
+    background: var(--cream-dark); border: 1px solid var(--border);
+  }
+  .hero-badge-mobile .badge-icon { width: 22px; height: 22px; border-radius: 50%; background: rgba(184,112,72,0.12); border: 1px solid rgba(184,112,72,0.4); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .hero-badge-mobile .badge-icon svg { color: var(--copper); }
+  .hero-badge-mobile .label { font-size: 8px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--copper); font-weight: 500; display: block; margin-bottom: 1px; }
+  .hero-badge-mobile .value { font-size: 11px; color: var(--text); font-family: 'Cormorant Garamond', serif; }
+  .hero-eyebrow { margin-bottom: 8px; }
+  .hero-name { font-size: clamp(30px, 8vw, 48px); }
+  .hero-tagline { font-size: 12px; margin-top: 8px; max-width: 100%; }
+  .hero-cta { margin-top: 12px; gap: 8px; }
+  .btn-primary, .btn-secondary { font-size: 10px; padding: 7px 12px; }
+
+  .stats-inner { padding: 0 16px; grid-template-columns: 1fr 1fr; }
+  .stat-item { padding: 20px 14px; border-right: 1px solid var(--border); }
+  .stat-item:nth-child(2) { border-right: none; }
+  .stat-item:nth-child(3) { border-top: 1px solid var(--border); }
+  .stat-item:nth-child(4) { border-top: 1px solid var(--border); border-right: none; }
+  .stat-number { font-size: 34px; }
+  .stat-label { font-size: 11px; }
+
+  section { padding: 40px 0; }
+  #tentang { padding: 40px 0; }
+  #keahlian { padding: 40px 0 0; }
+
+  .tentang-inner { padding: 0 16px !important; grid-template-columns: 1fr !important; gap: 24px !important; }
+  .tentang-left { position: static; }
+  .tentang-cards { flex-direction: column; gap: 1px; }
+  .tentang-card { padding: 13px 15px; }
+
+  .pengalaman-header { grid-template-columns: 1fr; gap: 16px; margin-bottom: 36px; }
+  .timeline { padding-left: 16px; }
+  .timeline::before { left: 3px; top: 12px; }
+  .timeline-meta { position: static; text-align: left; width: auto; margin-bottom: 6px; }
+  .timeline-dot { left: -16px; top: 12px; width: 8px; height: 8px; }
+  .timeline-role { font-size: 24px; }
+
+  .portfolio-header { grid-template-columns: 1fr; gap: 16px; margin-bottom: 32px; }
+  .portfolio-header-actions { padding-bottom: 0; }
+  .portfolio-grid { grid-template-columns: 1fr; }
+  .portfolio-card { padding: 24px 20px; }
+  .portfolio-card.featured { grid-column: auto; grid-template-columns: 1fr; gap: 20px; padding: 24px 20px; }
+  .portfolio-num { font-size: 28px; }
+  .portfolio-title { font-size: 22px; }
+  .portfolio-images { grid-template-columns: repeat(2, 1fr); }
+  .portfolio-images.two-col { grid-template-columns: 1fr 1fr; }
+
+  .skills-grid { grid-template-columns: 1fr; }
+  .skill-card { padding: 24px 20px; background: var(--cream); }
+
+  .pendidikan-inner { padding: 40px 16px !important; grid-template-columns: 1fr !important; gap: 36px !important; }
+
+  .kontak-grid { grid-template-columns: 1fr; gap: 32px; }
+  .kontak-heading { margin-bottom: 36px; }
+
+  .lightbox-inner { width: 95vw; }
+  .lightbox-img-wrap img { max-height: 50vh; }
+}
+</style>
+</head>
+<body>
+
+<!-- LIGHTBOX -->
+<div class="lightbox-overlay" id="lightbox" onclick="lightboxBgClose(event)">
+  <div class="lightbox-inner" onclick="event.stopPropagation()">
+    <div class="lightbox-header">
+      <span class="lightbox-label" id="lb-label">Proyek</span>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <span class="lightbox-counter" id="lb-counter"></span>
+        <button class="lightbox-close" onclick="closeLightbox()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="lightbox-img-wrap" id="lb-img-wrap">
+      <img id="lb-main-img" src="" alt="" style="width:100%;max-height:68vh;object-fit:contain;display:block;">
+      <div class="lightbox-arrows">
+        <button class="lightbox-arr" onclick="lbNav(-1)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button class="lightbox-arr" onclick="lbNav(1)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="lightbox-caption">
+      <span class="lightbox-title" id="lb-title"></span>
+      <span class="lightbox-sub" id="lb-sub"></span>
+    </div>
+    <div class="lightbox-nav" id="lb-thumbs"></div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-brand">
+      <a href="#hero" class="nav-name">Putra.</a>
+      <div class="nav-divider"></div>
+      <span class="nav-tagline">Planning · HR · Data</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#tentang"><span class="num"></span>Tentang</a></li>
+      <li><a href="#pengalaman"><span class="num"></span>Pengalaman</a></li>
+      <li><a href="#portfolio"><span class="num"></span>Portfolio</a></li>
+      <li><a href="#keahlian"><span class="num"></span>Keahlian</a></li>
+      <li><a href="#pendidikan-sertifikasi"><span class="num"></span>Pendidikan</a></li>
+      <li><a href="#kontak"><span class="num"></span>Kontak</a></li>
+    </ul>
+    <a href="CV_Putra_Lenaldo.pdf" class="btn-primary nav-cv-btn" download>
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Unduh CV
+    </a>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="nav-mobile-menu" id="mobileMenu">
+  <a href="#tentang" onclick="closeMenu()"><span class="num">01</span>Tentang</a>
+  <a href="#pengalaman" onclick="closeMenu()"><span class="num">02</span>Pengalaman</a>
+  <a href="#portfolio" onclick="closeMenu()"><span class="num">03</span>Portfolio</a>
+  <a href="#keahlian" onclick="closeMenu()"><span class="num">04</span>Keahlian</a>
+  <a href="#pendidikan-sertifikasi" onclick="closeMenu()"><span class="num">05</span>Pendidikan</a>
+  <a href="#kontak" onclick="closeMenu()"><span class="num">06</span>Kontak</a>
+  <a href="CV_Putra_Lenaldo.pdf" class="mob-cv" download onclick="closeMenu()">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    Unduh CV
+  </a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-eyebrow reveal">
+        <div class="hero-eyebrow-line"></div>
+        <span>Portfolio · 2026</span>
+      </div>
+      <h1 class="hero-name reveal">Putra<span class="last">Lenaldo.</span></h1>
+      <p class="hero-tagline reveal">Mengubah data operasional menjadi keputusan yang terukur — selama lebih dari satu dekade.</p>
+      <div class="hero-cta reveal">
+        <a href="CV_Putra_Lenaldo.pdf" class="btn-primary" download>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Unduh CV
+        </a>
+        <a href="Portfolio_PL.pdf" class="btn-primary" download>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Unduh Portfolio
+        </a>
+        <a href="#kontak" class="btn-secondary">
+          Hubungi Saya
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="hero-image-wrap reveal">
+      <img src="putralenaldo.jpeg" alt="Putra Lenaldo">
+      <div class="hero-badge">
+        <div class="badge-icon">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div class="badge-text">
+          <span class="label">Berbasis di</span>
+          <span class="value">Jakarta, Indonesia</span>
+        </div>
+      </div>
+      <div class="hero-badge-mobile">
+        <div class="badge-icon">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div>
+          <span class="label">Berbasis di</span>
+          <span class="value">Jakarta, Indonesia</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item reveal"><div class="stat-number">99%</div><div class="stat-label">Akurasi pengelolaan data<br>600+ karyawan</div></div>
+    <div class="stat-item reveal"><div class="stat-number">18%</div><div class="stat-label">Penurunan over/understaffing<br>shift 600 karyawan</div></div>
+    <div class="stat-item reveal"><div class="stat-number">90%</div><div class="stat-label">Peningkatan aksesibilitas<br>data lintas tim</div></div>
+    <div class="stat-item reveal"><div class="stat-number">100%</div><div class="stat-label">Pencapaian target KPI<br>departemen</div></div>
+  </div>
+</div>
+
+<!-- TENTANG -->
+<section id="tentang">
+  <div class="tentang-inner">
+    <div class="tentang-left">
+      <p class="section-eyebrow reveal">01 — Tentang</p>
+      <h2 class="section-heading reveal">Disiplin<br>tenang,<br><em>hasil terukur.</em></h2>
+    </div>
+    <div>
+      <div class="tentang-body reveal">
+        <p>Planning Analyst dan Administrative Professional dengan pengalaman lebih dari 10 tahun di bidang perencanaan operasional, administrasi, pengolahan data, dan pengembangan sistem informasi.</p>
+        <p>Berpengalaman mendukung fungsi HRD melalui pengelolaan data karyawan, monitoring KPI, penyusunan SOP, analisis kebutuhan tenaga kerja, serta perencanaan anggaran departemen untuk menunjang efektivitas operasional perusahaan.</p>
+      </div>
+      <div class="tentang-cards reveal">
+        <div class="tentang-card"><div class="card-label">Pengalaman</div><div class="card-value">10+ tahun</div></div>
+        <div class="tentang-card"><div class="card-label">Fokus</div><div class="card-value">Planning & HR</div></div>
+        <div class="tentang-card"><div class="card-label">Pendekatan</div><div class="card-value">Data-driven</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PENGALAMAN -->
+<section id="pengalaman">
+  <div class="wrap">
+    <div class="pengalaman-header">
+      <div>
+        <p class="section-eyebrow reveal">02 — Pengalaman</p>
+        <h2 class="section-heading reveal">Sepuluh tahun<br><em>membangun sistem.</em></h2>
+      </div>
+      <p class="pengalaman-desc reveal">Karir yang terbentuk dari ketelitian administratif, kemudian berkembang menjadi analisis perencanaan strategis berbasis data.</p>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item visible" style="opacity:1;transform:none;">
+        <div class="timeline-meta">
+          <div class="timeline-period">Sep 2021 — Sep 2025</div>
+          <div class="timeline-location">Jakarta · Pegawai Tetap</div>
+        </div>
+        <div class="timeline-dot"></div>
+        <h3 class="timeline-role">Department Planning Analyst</h3>
+        <div class="timeline-company">PT Transportasi Jakarta</div>
+        <ul class="timeline-points">
+          <li>Mengelola lebih dari 600 data karyawan dengan tingkat akurasi 99%.</li>
+          <li>Berkolaborasi dengan tim HRD dalam mengelola data administrasi karyawan, termasuk gaji, cuti, jam kerja, absensi, dan akun karyawan.</li>
+          <li>Berkolaborasi dengan tim HRD dan seluruh pihak terkait untuk menganalisa dan memperbaiki SOP perusahaan agar lebih efisien.</li>
+          <li>Mengoptimalkan jadwal shift hingga 600 karyawan, mengurangi overstaffing dan understaffing sebesar 18%.</li>
+          <li>Mengintegrasikan berbagai sumber data menjadi satu sistem terpadu, meningkatkan aksesibilitas data tim sebesar 90%.</li>
+          <li>Menyusun dan memonitor KPI, SOP, serta anggaran departemen untuk memastikan pencapaian target operasional hingga 100%.</li>
+        </ul>
+      </div>
+      <div class="timeline-item visible" style="opacity:1;transform:none;">
+        <div class="timeline-meta">
+          <div class="timeline-period">Jan 2015 — Sep 2021</div>
+          <div class="timeline-location">Jakarta · Pegawai Tetap</div>
+        </div>
+        <div class="timeline-dot"></div>
+        <div class="acc-trigger" onclick="toggleAcc(this)">
+          <h3 class="timeline-role" style="margin:0;">Staf Operasional — Admin HRD</h3>
+          <svg class="acc-icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--copper)" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="timeline-company">PT Transportasi Jakarta</div>
+        <div class="acc-body">
+          <ul class="timeline-points" style="padding-top:14px;">
+            <li>Mengelola dan mengarsipkan surat menyurat administrasi dengan memastikan keakuratan dan distribusi yang tepat.</li>
+            <li>Melakukan penjadwalan, rekapitulasi dan validasi data absensi harian serta bulanan untuk 600 personel, dengan tingkat ketepatan 99%.</li>
+            <li>Menjadi bagian dari Tim Auditor dalam pelaksanaan audit internal berbasis ISO 19011:2011.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="timeline-item visible" style="opacity:1;transform:none;">
+        <div class="timeline-meta">
+          <div class="timeline-period">Apr 2026 — Sekarang</div>
+          <div class="timeline-location">Jakarta · Paruh Waktu</div>
+        </div>
+        <div class="timeline-dot"></div>
+        <div class="acc-trigger" onclick="toggleAcc(this)">
+          <h3 class="timeline-role" style="margin:0;">Data Analyst</h3>
+          <svg class="acc-icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--copper)" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="timeline-company">PT DMS Pratama Indonesia</div>
+        <div class="acc-body">
+          <ul class="timeline-points" style="padding-top:14px;">
+            <li>Mengintegrasikan berbagai sumber data menjadi satu sistem terpadu, meningkatkan aksesibilitas data tim bisnis sebesar 90%.</li>
+            <li>Mendukung kegiatan administrasi harian, termasuk pengarsipan, pengelolaan data, pengelolaan pajak, dan pembuatan laporan.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div class="wrap">
+    <div class="portfolio-header">
+      <div class="portfolio-header-left">
+        <p class="section-eyebrow reveal">03 — Portfolio</p>
+        <h2 class="section-heading reveal">Proyek nyata,<br><em>dampak terukur.</em></h2>
+        <p class="portfolio-desc reveal">Kumpulan proyek yang menunjukkan bagaimana pendekatan berbasis data diterapkan dalam operasional nyata — dari integrasi sistem hingga perencanaan tenaga kerja.</p>
+      </div>
+    </div>
+
+    <div class="portfolio-grid">
+
+      <!-- Featured: Integrasi Data -->
+      <div class="portfolio-card featured reveal">
+        <div class="portfolio-left">
+          <div class="portfolio-card-top">
+            <span class="portfolio-tag">Integrasi Data</span>
+            <span class="portfolio-num">01</span>
+          </div>
+          <div class="portfolio-title">Sistem Terpadu Data Operasional Karyawan</div>
+          <div class="portfolio-org">PT Transportasi Jakarta · 2023</div>
+          <div class="portfolio-desc-text">Mengintegrasikan tujuh sumber data terpisah — absensi, Database Karyawan, cuti, Lokasi Tugas, jadwal shift, Pengarsipan dan Kegiatan Operasional — menjadi satu dashboard terpadu yang dapat diakses oleh seluruh tim Departemen dan manajemen secara real-time.</div>
+          <div class="portfolio-impacts">
+            <span class="portfolio-impact">↑ 90% aksesibilitas data</span>
+            <span class="portfolio-impact">↓ 70% waktu rekap manual</span>
+            <span class="portfolio-impact">99% akurasi data</span>
+          </div>
+          <div class="portfolio-divider"></div>
+          <div class="portfolio-tools">
+            <span class="portfolio-tool">Microsoft Excel</span>
+            <span class="portfolio-tool">Power BI</span>
+            <span class="portfolio-tool">HRIS</span>
+            <span class="portfolio-tool">Database Management</span>
+          </div>
+        </div>
+        <div class="portfolio-right">
+          <div class="portfolio-images two-col" id="gallery-p01">
+            <div class="portfolio-thumb" onclick="openLightbox('p01',0)">
+              <img src="dashboard.png" alt="Power BI Dashboard Terpadu" loading="lazy">
+              <div class="portfolio-thumb-zoom"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></div>
+            </div>
+            <div class="portfolio-thumb" onclick="openLightbox('p01',1)">
+              <img src="1.png" alt="HRIS Integrasi Data Karyawan" loading="lazy">
+              <div class="portfolio-thumb-zoom"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: Optimasi Jadwal Shift -->
+      <div class="portfolio-card reveal">
+        <div class="portfolio-card-top">
+          <span class="portfolio-tag">Workforce Planning</span>
+          <span class="portfolio-num">02</span>
+        </div>
+        <div class="portfolio-title">Optimasi Jadwal Shift 600 Karyawan</div>
+        <div class="portfolio-org">PT Transportasi Jakarta · 2022</div>
+        <div class="portfolio-images" id="gallery-p02" style="margin-bottom:16px;">
+          <div class="portfolio-thumb" onclick="openLightbox('p02',0)">
+            <img src="1.png" alt="Template Jadwal Shift Karyawan" loading="lazy">
+            <div class="portfolio-thumb-zoom"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></div>
+          </div>
+          <div class="portfolio-thumb" onclick="openLightbox('p02',1)">
+            <img src="1.png" alt="Workforce Analytics Dashboard" loading="lazy">
+            <div class="portfolio-thumb-zoom"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></div>
+          </div>
+          <div class="portfolio-thumb" onclick="openLightbox('p02',2)">
+            <img src="1.png" alt="Heatmap Kebutuhan Tenaga Kerja" loading="lazy">
+            <div class="portfolio-thumb-zoom"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></div>
+          </div>
+        </div>
+        <div class="portfolio-desc-text">Merancang ulang sistem penjadwalan shift untuk lebih dari 600 karyawan operasional dengan menganalisis pola kebutuhan layanan, ketersediaan tenaga kerja, dan regulasi jam kerja.</div>
+        <div class="portfolio-impacts">
+          <span class="portfolio-impact">↓ 18% over/understaffing</span>
+          <span class="portfolio-impact">↑ Efisiensi operasional</span>
+        </div>
+        <div class="portfolio-divider"></div>
+        <div class="portfolio-tools">
+          <span class="portfolio-tool">Excel</span>
+          <span class="portfolio-tool">Workforce Analytics</span>
+          <span class="portfolio-tool">KPI Monitoring</span>
+        </div>
+      </div>
+
+      <!-- Card 3: Audit Internal ISO -->
+      <div class="portfolio-card reveal">
+        <div class="portfolio-card-top">
+          <span class="portfolio-tag">Audit & Mutu</span>
+          <span class="portfolio-num">03</span>
+        </div>
+        <div class="portfolio-title">Audit Internal Berbasis ISO 19011:2011</div>
+        <div class="portfolio-org">PT Transportasi Jakarta · 2020</div>
+        <div class="portfolio-images two-col" id="gallery-p03" style="margin-bottom:16px;">
+          <div class="portfolio-thumb" onclick="openLightbox('p03',0)">
+            <img src="1.png" alt="ISO 9001 Internal Audit Checklist" loading="lazy">
+            <div class="portfolio-thumb-zoom"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></div>
+          </div>
+          <div class="portfolio-thumb" onclick="openLightbox('p03',1)">
+            <img src="1.png" alt="ISO 19011 Audit Quality Management" loading="lazy">
+            <div class="portfolio-thumb-zoom"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></div>
+          </div>
+        </div>
+        <div class="portfolio-desc-text">Terlibat sebagai anggota Tim Auditor Internal dalam evaluasi sistem manajemen mutu perusahaan, menghasilkan rekomendasi perbaikan yang diimplementasikan pada siklus berikutnya.</div>
+        <div class="portfolio-impacts">
+          <span class="portfolio-impact">Audit 100% sesuai jadwal</span>
+          <span class="portfolio-impact">↑ Kepatuhan SOP</span>
+        </div>
+        <div class="portfolio-divider"></div>
+        <div class="portfolio-tools">
+          <span class="portfolio-tool">ISO 19011:2011</span>
+          <span class="portfolio-tool">SOP Development</span>
+          <span class="portfolio-tool">Internal Audit</span>
+        </div>
+      </div>
+
+      <!-- Card 4: KPI & Anggaran -->
+      <div class="portfolio-card reveal">
+        <div class="portfolio-card-top">
+          <span class="portfolio-tag">Planning & Budget</span>
+          <span class="portfolio-num">04</span>
+        </div>
+        <div class="portfolio-title">Monitoring KPI & Perencanaan Anggaran Departemen</div>
+        <div class="portfolio-org">PT Transportasi Jakarta · 2021–2025</div>
+        <div class="portfolio-images two-col" id="gallery-p04" style="margin-bottom:16px;">
+          <div class="portfolio-thumb" onclick="openLightbox('p04',0)">
+            <img src="1.png" alt="Excel KPI Dashboard Template" loading="lazy">
+            <div class="portfolio-thumb-zoom"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></div>
+          </div>
+          <div class="portfolio-thumb" onclick="openLightbox('p04',1)">
+            <img src="1.png" alt="Financial KPI Budget Planning Dashboard" loading="lazy">
+            <div class="portfolio-thumb-zoom"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></div>
+          </div>
+        </div>
+        <div class="portfolio-desc-text">Menyusun framework monitoring KPI departemen yang terintegrasi dengan perencanaan anggaran tahunan, memungkinkan penyesuaian alokasi sumber daya secara real-time.</div>
+        <div class="portfolio-impacts">
+          <span class="portfolio-impact">100% target KPI tercapai</span>
+          <span class="portfolio-impact">↑ Visibilitas anggaran</span>
+        </div>
+        <div class="portfolio-divider"></div>
+        <div class="portfolio-tools">
+          <span class="portfolio-tool">Power BI</span>
+          <span class="portfolio-tool">Excel</span>
+          <span class="portfolio-tool">Budget Planning</span>
+          <span class="portfolio-tool">KPI Framework</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- KEAHLIAN -->
+<section id="keahlian">
+  <div class="wrap">
+    <p class="section-eyebrow reveal">04 — Keahlian</p>
+    <h2 class="section-heading reveal">Perangkat untuk<br><em>menerjemahkan data.</em></h2>
+    <div class="skills-grid">
+      <div class="skill-card reveal">
+        <div class="skill-card-header"><span class="skill-card-num">i.</span><span class="skill-card-category">Tools & Systems</span></div>
+        <div class="skill-card-title">Teknis & Analitik</div>
+        <ul class="skill-list">
+          <li><span class="skill-num">01</span>Microsoft Excel</li>
+          <li><span class="skill-num">02</span>Power BI</li>
+          <li><span class="skill-num">03</span>Tableau</li>
+          <li><span class="skill-num">04</span>HRIS</li>
+          <li><span class="skill-num">05</span>HR Analytics</li>
+          <li><span class="skill-num">06</span>Database Management</li>
+        </ul>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-card-header"><span class="skill-card-num">ii.</span><span class="skill-card-category">Domain Expertise</span></div>
+        <div class="skill-card-title">Profesional</div>
+        <ul class="skill-list">
+          <li><span class="skill-num">01</span>Operational Planning</li>
+          <li><span class="skill-num">02</span>KPI & SOP Development</li>
+          <li><span class="skill-num">03</span>Workforce Scheduling</li>
+          <li><span class="skill-num">04</span>Budget Planning</li>
+          <li><span class="skill-num">05</span>Internal Audit (ISO 19011)</li>
+          <li><span class="skill-num">06</span>Process Improvement</li>
+        </ul>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-card-header"><span class="skill-card-num">iii.</span><span class="skill-card-category">Cara Bekerja</span></div>
+        <div class="skill-card-title">Interpersonal</div>
+        <ul class="skill-list">
+          <li><span class="skill-num">01</span>Kepemimpinan</li>
+          <li><span class="skill-num">02</span>Manajemen Waktu</li>
+          <li><span class="skill-num">03</span>Manajemen Operasional</li>
+          <li><span class="skill-num">04</span>Kolaborasi Lintas Tim</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="skills-ticker">
+    <div class="ticker-inner">
+      <span>Excel</span><span class="dot">·</span><span>KPI Monitoring</span><span class="dot">·</span>
+      <span>SOP Development</span><span class="dot">·</span><span>ISO 19011</span><span class="dot">·</span>
+      <span>Workforce Planning</span><span class="dot">·</span><span>Power BI</span><span class="dot">·</span>
+      <span>Budget Planning</span><span class="dot">·</span><span>HR Analytics</span><span class="dot">·</span>
+      <span>Process Improvement</span><span class="dot">·</span><span>Tableau</span><span class="dot">·</span><span>HRIS</span><span class="dot">·</span>
+      <span>Excel</span><span class="dot">·</span><span>KPI Monitoring</span><span class="dot">·</span>
+      <span>SOP Development</span><span class="dot">·</span><span>ISO 19011</span><span class="dot">·</span>
+      <span>Workforce Planning</span><span class="dot">·</span><span>Power BI</span><span class="dot">·</span>
+      <span>Budget Planning</span><span class="dot">·</span><span>HR Analytics</span><span class="dot">·</span>
+      <span>Process Improvement</span><span class="dot">·</span><span>Tableau</span><span class="dot">·</span><span>HRIS</span><span class="dot">·</span>
+    </div>
+  </div>
+</section>
+
+<!-- PENDIDIKAN & SERTIFIKASI -->
+<section id="pendidikan-sertifikasi">
+  <div class="pendidikan-inner">
+    <div>
+      <p class="section-eyebrow reveal">05 — Pendidikan</p>
+      <h2 class="section-heading reveal">Fondasi <em>sistem informasi.</em></h2>
+      <div class="edu-entry reveal">
+        <div class="edu-degree">S1 — Sistem Informasi</div>
+        <div class="edu-school">Universitas Gunadarma, Jakarta</div>
+        <div class="edu-period">Agustus 2009 — Agustus 2014</div>
+        <div class="edu-gpa">IPK 3.01 / 4.00</div>
+        <div class="edu-desc">Fokus pada pengelolaan sistem informasi, basis data, dan penerapan teknologi dalam proses bisnis dan administrasi.</div>
+      </div>
+    </div>
+    <div>
+      <p class="section-eyebrow reveal">06 — Sertifikasi</p>
+      <h2 class="section-heading reveal">Komitmen pada <em>mutu.</em></h2>
+      <div class="cert-entry reveal">
+        <div class="cert-name">Internal Audit Training of Quality Management System</div>
+        <div class="cert-basis">Berbasis ISO 19011:2011</div>
+        <div class="cert-issuer">
+          <span class="cert-issuer-name">Sprint Consultant</span>
+          <span class="cert-date">Januari 2020</span>
+        </div>
+      </div>
+      <div class="cert-quote reveal">
+        <blockquote>"Standar yang baik bukan hambatan — ia adalah peta menuju konsistensi."</blockquote>
+        <cite>— Filosofi Kerja</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KONTAK -->
+<section id="kontak">
+  <div class="wrap">
+    <h2 class="kontak-heading reveal">Mari berkolaborasi<br><em>untuk operasi yang lebih</em><br>tertata.</h2>
+    <div class="kontak-grid">
+      <div>
+        <div class="kontak-block reveal">
+          <div class="kontak-label">Email</div>
+          <a href="mailto:putralenaldo@gmail.com" class="kontak-value">
+            putralenaldo@gmail.com
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </a>
+          <div class="kontak-hint">Klik untuk menyalin</div>
+        </div>
+        <div class="kontak-block reveal">
+          <div class="kontak-label">Telepon / WhatsApp</div>
+          <a href="https://wa.me/6281383784885" target="_blank" rel="noopener noreferrer" class="kontak-value">+62 813 8378 4885</a>
+        </div>
+        <div class="kontak-block reveal">
+          <div class="kontak-label">Lokasi</div>
+          <div class="kontak-value" style="cursor:default;">Jakarta, Indonesia</div>
+        </div>
+      </div>
+      <div>
+        <div class="kontak-label reveal" style="margin-bottom:0;">Temukan Saya di</div>
+        <div class="kontak-links reveal">
+          <a href="mailto:putralenaldo@gmail.com" class="kontak-link">
+            <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Kirim email</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </a>
+          <a href="https://linkedin.com/in/putralenaldo" class="kontak-link" target="_blank">
+            <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </a>
+          <a href="https://instagram.com/putralenaldo" class="kontak-link" target="_blank">
+            <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>Instagram</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </a>
+        </div>
+        <a href="CV_Putra_Lenaldo.pdf" class="kontak-cv-btn reveal" download>
+          <span style="display:flex;align-items:center;gap:9px;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Unduh CV Lengkap (PDF)
+          </span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </a>
+        <a href="Portfolio_PL.pdf" class="kontak-cv-btn reveal" download>
+          <span style="display:flex;align-items:center;gap:9px;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Unduh Portfolio (Convert ke PDF)
+          </span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <p>© 2026 Putra Lenaldo · Jakarta</p>
+    <p>Dibuat dengan ketelitian, untuk perencanaan yang baik.</p>
+  </div>
+</footer>
+
+<script>
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', () => {
+  const open = mobileMenu.classList.toggle('open');
+  const spans = hamburger.querySelectorAll('span');
+  if (open) {
+    spans[0].style.transform = 'translateY(6.5px) rotate(45deg)';
+    spans[1].style.opacity = '0';
+    spans[2].style.transform = 'translateY(-6.5px) rotate(-45deg)';
+  } else {
+    spans.forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+  }
+});
+function closeMenu() {
+  mobileMenu.classList.remove('open');
+  hamburger.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+}
+
+function toggleAcc(trigger) {
+  const body = trigger.parentElement.querySelector('.acc-body');
+  const icon = trigger.querySelector('.acc-icon');
+  const isOpen = body.style.maxHeight && body.style.maxHeight !== '0px';
+  if (isOpen) { body.style.maxHeight = '0'; body.style.opacity = '0'; icon.style.transform = 'rotate(0deg)'; }
+  else { body.style.maxHeight = body.scrollHeight + 'px'; body.style.opacity = '1'; icon.style.transform = 'rotate(180deg)'; }
+}
+
+const reveals = document.querySelectorAll('.reveal');
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, { threshold: 0, rootMargin: '0px 0px -32px 0px' });
+reveals.forEach(el => obs.observe(el));
+
+const emailEl = document.querySelector('.kontak-value[href^="mailto"]');
+if (emailEl) {
+  emailEl.addEventListener('click', e => {
+    e.preventDefault();
+    navigator.clipboard.writeText('putralenaldo@gmail.com').then(() => {
+      const hint = emailEl.nextElementSibling;
+      if (hint) { hint.textContent = 'Tersalin!'; setTimeout(() => hint.textContent = 'Klik untuk menyalin', 2000); }
+    });
+  });
+}
+
+// LIGHTBOX — image-based
+const galleries = {
+  'p01': [
+    { src: 'dashboard.png', title: 'Dashboard Terpadu Real-time', sub: 'Sistem Terpadu · 2023' },
+    { src: '1.png', title: 'Aliran Integrasi HRIS 5 Sumber Data', sub: 'Sistem Terpadu · 2023' },
+  ],
+  'p02': [
+    { src: '1.png', title: 'Template Jadwal Shift Karyawan', sub: 'Optimasi Shift · 2022' },
+    { src: '1.png', title: 'Workforce Analytics Dashboard', sub: 'Optimasi Shift · 2022' },
+    { src: '1.png', title: 'Heatmap Kebutuhan Tenaga Kerja per Jam', sub: 'Optimasi Shift · 2022' },
+  ],
+  'p03': [
+    { src: '1.png', title: 'Checklist Audit Internal ISO 19011:2011', sub: 'Audit Mutu · 2020' },
+    { src: '1.png', title: 'Standar ISO 19011 — Audit Mutu', sub: 'Audit Mutu · 2020' },
+  ],
+  'p04': [
+    { src: '1.png', title: 'KPI Dashboard — Monitoring Q4', sub: 'Planning & Budget · 2021–2025' },
+    { src: '1.png', title: 'Rencana & Realisasi Anggaran Departemen', sub: 'Planning & Budget · 2021–2025' },
+  ],
+};
+
+let currentGallery = null;
+let currentIdx = 0;
+
+function openLightbox(galleryKey, imgIdx) {
+  currentGallery = galleryKey;
+  currentIdx = imgIdx;
+  renderLightbox();
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function lightboxBgClose(e) {
+  if (e.target === document.getElementById('lightbox')) closeLightbox();
+}
+
+function lbNav(dir) {
+  const items = galleries[currentGallery];
+  currentIdx = (currentIdx + dir + items.length) % items.length;
+  renderLightbox();
+}
+
+function renderLightbox() {
+  const items = galleries[currentGallery];
+  const item = items[currentIdx];
+
+  document.getElementById('lb-label').textContent = item.sub;
+  document.getElementById('lb-counter').textContent = (currentIdx + 1) + ' / ' + items.length;
+  document.getElementById('lb-title').textContent = item.title;
+  document.getElementById('lb-sub').textContent = item.sub;
+  document.getElementById('lb-main-img').src = item.src;
+  document.getElementById('lb-main-img').alt = item.title;
+
+  const thumbsEl = document.getElementById('lb-thumbs');
+  thumbsEl.innerHTML = '';
+  items.forEach((it, i) => {
+    const btn = document.createElement('div');
+    btn.className = 'lightbox-thumb-lb' + (i === currentIdx ? ' active' : '');
+    btn.onclick = () => { currentIdx = i; renderLightbox(); };
+    const img = document.createElement('img');
+    img.src = it.src;
+    img.alt = it.title;
+    btn.appendChild(img);
+    thumbsEl.appendChild(btn);
+  });
+
+  const arrows = document.querySelector('.lightbox-arrows');
+  if (arrows) arrows.style.display = items.length > 1 ? 'flex' : 'none';
+}
+
+document.addEventListener('keydown', (e) => {
+  if (!document.getElementById('lightbox').classList.contains('open')) return;
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowRight') lbNav(1);
+  if (e.key === 'ArrowLeft') lbNav(-1);
+});
+</script>
+</body>
+</html>
